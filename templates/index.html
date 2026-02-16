@@ -14,15 +14,7 @@
         
         <p style="color: rgb(0,255,255)">Made by CybertronianFan on <a href="https://github.com/CybertronianFan" target="_blank"  style="color: rgb(0,255,255)">Github</a></p>
         <p> If you would like to see some of the documentation please see my  <a href="https://github.com/CybertronianFan/Object-Detector" target="_blank"> Github repository</a></p>
-        <script>
-            setInterval(function(){
-                fetch('/get_fps')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('fps-display').innerText = 'FPS: ' + data;
-                })
-            }, 1000);
-        </script>
+        <script src="/static/script.js"> </script>
     </body>
 </html>
 
