@@ -14,3 +14,19 @@ p {
 a{
     color: rgb(255, 255, 255)
 }
+
+.toggle-btn_Stop{
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.toggle-btn_Start{
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}

@@ -15,6 +15,7 @@ if torch.cuda.is_available():
 model = YOLO('yolov8n.pt')
 
 current_fps = 0
+is_running = True
 
 # Camera setup
 cap = None
@@ -35,6 +36,9 @@ def generate_frames():
     prev_time = time.time()  # Get the "previous" time
     
     while True:
+        if not is_running:
+            time.sleep(0.1)
+            continue
         ret, frame = cap.read()
         if not ret:
             print("Failed to grab frame")
@@ -76,6 +80,18 @@ def home():
 @app.route('/get_fps')
 def get_fps():
     return str(current_fps)
+
+@app.route('/start')
+def start_tracking():
+    global is_running
+    is_running = True
+    return 'started'
+
+@app.route('/stop')
+def stop_tracking():
+    global is_running
+    is_running = False
+    return 'stopped'
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
